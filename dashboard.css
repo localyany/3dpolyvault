@@ -167,23 +167,27 @@ margin-bottom:40px;
 
 /* PROFILE */
 
-.profile-card{
-
-background:#111;
-
-padding:30px;
-
-border-radius:20px;
-
-width:450px;
+.profile-info{
 
 display:flex;
 
-align-items:center;
+flex-direction:column;
 
-gap:25px;
+gap:8px;
 
-border:1px solid #222;
+}
+
+
+.profile-info h2{
+
+font-size:26px;
+
+}
+
+
+.profile-info p{
+
+color:#888;
 
 }
 

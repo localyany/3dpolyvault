@@ -10,13 +10,13 @@ background:#080808;
 color:white;
 }
 
-header{
-height:90px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 8%;
-border-bottom:1px solid #222;
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    border-bottom: 1px solid #222;
 }
 
 .logo img {

@@ -9,15 +9,12 @@ font-family:Arial,sans-serif;
 body{
 
 background:#080808;
-
 color:white;
 
 }
 
 
-
 /* HEADER */
-
 
 header{
 
@@ -36,13 +33,11 @@ border-bottom:1px solid #222;
 }
 
 
-
 .logo img{
 
 width:160px;
 
 }
-
 
 
 .back{
@@ -51,8 +46,9 @@ color:#aaa;
 
 text-decoration:none;
 
-}
+transition:.2s;
 
+}
 
 
 .back:hover{
@@ -63,10 +59,7 @@ color:white;
 
 
 
-
-
 /* DASHBOARD */
-
 
 .dashboard{
 
@@ -78,9 +71,7 @@ min-height:calc(100vh - 80px);
 
 
 
-
 /* SIDEBAR */
-
 
 aside{
 
@@ -88,10 +79,9 @@ width:260px;
 
 border-right:1px solid #222;
 
-padding:40px;
+padding:40px 30px;
 
 }
-
 
 
 aside h2{
@@ -102,8 +92,7 @@ margin-bottom:30px;
 
 
 
-.menu,
-.logout{
+.menu{
 
 display:block;
 
@@ -145,30 +134,7 @@ color:white;
 
 
 
-aside hr{
-
-border:0;
-
-border-top:1px solid #222;
-
-margin:30px 0;
-
-}
-
-
-
-.logout{
-
-color:#ff5555;
-
-}
-
-
-
-
-
 /* MAIN */
-
 
 main{
 
@@ -189,8 +155,7 @@ margin-bottom:15px;
 }
 
 
-
-main>div>p{
+main > div > p{
 
 color:#aaa;
 
@@ -200,16 +165,9 @@ margin-bottom:40px;
 
 
 
-
-
 /* PROFILE */
 
-
 .profile-card{
-
-display:flex;
-
-align-items:center;
 
 background:#111;
 
@@ -217,17 +175,24 @@ padding:30px;
 
 border-radius:20px;
 
-width:420px;
+width:450px;
+
+display:flex;
+
+align-items:center;
+
+gap:25px;
+
+border:1px solid #222;
 
 }
 
 
-
 .avatar{
 
-width:70px;
+width:80px;
 
-height:70px;
+height:80px;
 
 border-radius:50%;
 
@@ -239,33 +204,65 @@ align-items:center;
 
 justify-content:center;
 
-font-size:30px;
+font-size:32px;
 
 font-weight:bold;
 
-margin-right:20px;
+}
+
+
+
+.profile-info h2{
+
+margin-bottom:10px;
 
 }
 
 
 
-
-
-.profile-card p{
+.profile-info p{
 
 color:#aaa;
 
-margin-top:8px;
+margin-top:7px;
 
 }
 
 
 
+/* LOGOUT */
+
+.logout{
+
+margin-top:20px;
+
+background:#222;
+
+color:white;
+
+border:0;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
 
 
 
-/* EMPTY BLOCK */
+.logout:hover{
 
+background:#8b5cf6;
+
+}
+
+
+
+/* EMPTY */
 
 .empty{
 
@@ -281,20 +278,17 @@ align-items:center;
 
 justify-content:center;
 
-text-align:center;
-
 color:#777;
 
 font-size:20px;
+
+border:1px solid #222;
 
 }
 
 
 
-
-
 /* SETTINGS */
-
 
 .settings-card{
 
@@ -310,47 +304,10 @@ width:350px;
 
 
 
-.settings-card button{
-
-background:#222;
-
-color:white;
-
-border:0;
-
-padding:12px 25px;
-
-border-radius:10px;
-
-cursor:pointer;
-
-}
-
-
-
-
+/* HIDE */
 
 .hidden{
 
 display:none;
-
-}
-
-.logout{
-
-margin-top:20px;
-
-background:#222;
-
-width:auto;
-
-padding:12px 25px;
-
-}
-
-
-.logout:hover{
-
-background:#8b5cf6;
 
 }

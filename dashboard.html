@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,11 +23,15 @@
 <img src="assets/logo.png" alt="PolyVault">
 </a>
 
+
 <a class="back" href="index.html">
 Back to Store
 </a>
 
+
 </header>
+
+
 
 
 
@@ -35,29 +40,49 @@ Back to Store
 
 <aside>
 
-<h2>Account</h2>
 
-<a class="menu active" onclick="showPage('profile')">
+<h2>
+Account
+</h2>
+
+
+<a class="menu active" onclick="showPage('profile', this)">
 👤 Profile
 </a>
 
-<a class="menu" onclick="showPage('library')">
+
+<a class="menu" onclick="showPage('library', this)">
 📦 My Library
 </a>
 
-<a class="menu" onclick="showPage('purchases')">
+
+<a class="menu" onclick="showPage('purchases', this)">
 🛒 Purchases
 </a>
 
-<a class="menu" onclick="showPage('favorites')">
+
+<a class="menu" onclick="showPage('favorites', this)">
 ❤️ Favorites
 </a>
 
-<a class="menu" onclick="showPage('settings')">
+
+<a class="menu" onclick="showPage('settings', this)">
 ⚙ Settings
 </a>
 
+
+<hr>
+
+
+<a class="logout" href="index.html">
+🚪 Logout
+</a>
+
+
 </aside>
+
+
+
 
 
 
@@ -65,9 +90,14 @@ Back to Store
 <main>
 
 
+
+<div id="profile">
+
+
 <h1>
 Welcome back, Alex
 </h1>
+
 
 <p>
 Your personal PolyVault space
@@ -77,25 +107,57 @@ Your personal PolyVault space
 
 <div class="profile-card">
 
+
+<div class="avatar">
+A
+</div>
+
+
+<div>
+
 <h2>
 Alex Studio
 </h2>
+
 
 <p>
 Member since 2026
 </p>
 
+
 <p>
 Models owned: 0
 </p>
+
+
+</div>
+
 
 </div>
 
 
 
-<h2>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="library" class="hidden">
+
+
+<h1>
 My Library
-</h2>
+</h1>
+
+
+<p>
+Your purchased and downloaded assets
+</p>
 
 
 <div class="empty">
@@ -104,15 +166,185 @@ No models yet
 
 <br>
 
-Start exploring 3D assets
+Explore PolyVault marketplace
 
 </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="purchases" class="hidden">
+
+
+<h1>
+Purchases
+</h1>
+
+
+<p>
+Your order history
+</p>
+
+
+<div class="empty">
+
+No purchases yet
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="favorites" class="hidden">
+
+
+<h1>
+Favorites
+</h1>
+
+
+<p>
+Saved models
+</p>
+
+
+<div class="empty">
+
+No favorite models
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="settings" class="hidden">
+
+
+<h1>
+Settings
+</h1>
+
+
+<p>
+Manage your account
+</p>
+
+
+
+<div class="settings-card">
+
+
+<h3>
+Appearance
+</h3>
+
+
+<br>
+
+
+<button>
+🌙 Dark Mode
+</button>
+
+
+<br><br>
+
+
+<h3>
+Language
+</h3>
+
+
+<p>
+English
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
 
 
 </main>
 
 
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+function showPage(page, element){
+
+
+let pages = document.querySelectorAll("main > div");
+
+
+pages.forEach(function(item){
+
+item.classList.add("hidden");
+
+});
+
+
+
+document.getElementById(page).classList.remove("hidden");
+
+
+
+let menu = document.querySelectorAll(".menu");
+
+
+menu.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+
+
+element.classList.add("active");
+
+
+}
+
+
+
+</script>
+
 
 
 </body>

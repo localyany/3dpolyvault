@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Account - PolyVault</title>
+
+<link rel="stylesheet" href="auth.css">
+
+</head>
+
+
+<body>
+
+
+<div class="auth-box">
+
+<img src="assets/logo.png" class="auth-logo">
+
+
+<h1>Create Account</h1>
+
+
+<input id="username" placeholder="Username">
+
+<input id="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+
+<button onclick="register()">
+Create Account
+</button>
+
+
+<p>
+Already have account?
+<a href="login.html">
+Sign in
+</a>
+</p>
+
+
+</div>
+
+
+
+<script>
+
+function register(){
+
+let username =
+document.getElementById("username").value;
+
+
+let email =
+document.getElementById("email").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+if(!username || !email || !password){
+
+alert("Fill all fields");
+return;
+
+}
+
+
+let user = {
+
+username,
+email,
+password
+
+};
+
+
+localStorage.setItem(
+"polyvault_user",
+JSON.stringify(user)
+);
+
+
+alert("Account created");
+
+
+window.location.href="dashboard.html";
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>

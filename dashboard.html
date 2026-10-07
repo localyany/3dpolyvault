@@ -33,8 +33,6 @@ Back to Store
 
 
 
-
-
 <div class="dashboard">
 
 
@@ -46,36 +44,28 @@ Account
 </h2>
 
 
-<a class="menu active" onclick="showPage('profile', this)">
+<a class="menu active" onclick="showPage('profile',this)">
 👤 Profile
 </a>
 
 
-<a class="menu" onclick="showPage('library', this)">
+<a class="menu" onclick="showPage('library',this)">
 📦 My Library
 </a>
 
 
-<a class="menu" onclick="showPage('purchases', this)">
+<a class="menu" onclick="showPage('purchases',this)">
 🛒 Purchases
 </a>
 
 
-<a class="menu" onclick="showPage('favorites', this)">
+<a class="menu" onclick="showPage('favorites',this)">
 ❤️ Favorites
 </a>
 
 
-<a class="menu" onclick="showPage('settings', this)">
+<a class="menu" onclick="showPage('settings',this)">
 ⚙ Settings
-</a>
-
-
-<hr>
-
-
-<a class="logout" href="index.html">
-🚪 Logout
 </a>
 
 
@@ -85,11 +75,11 @@ Account
 
 
 
-
-
 <main>
 
 
+
+<!-- PROFILE -->
 
 <div id="profile">
 
@@ -98,24 +88,39 @@ Account
 Welcome back, <span id="username">User</span>
 </h1>
 
+
 <p>
 Your personal PolyVault space
 </p>
 
 
+
 <div class="profile-card">
+
+
+<div class="avatar" id="avatar">
+U
+</div>
+
+
+
+<div class="profile-info">
+
 
 <h2 id="studioName">
 Studio
 </h2>
 
+
 <p id="email">
 email@example.com
 </p>
 
+
 <p>
 Models owned: 0
 </p>
+
 
 
 <button onclick="logout()" class="logout">
@@ -129,16 +134,13 @@ Logout
 </div>
 
 
-
 </div>
 
 
 
 
 
-
-
-
+<!-- LIBRARY -->
 
 <div id="library" class="hidden">
 
@@ -154,13 +156,7 @@ Your purchased and downloaded assets
 
 
 <div class="empty">
-
 No models yet
-
-<br>
-
-Explore PolyVault marketplace
-
 </div>
 
 
@@ -170,9 +166,7 @@ Explore PolyVault marketplace
 
 
 
-
-
-
+<!-- PURCHASES -->
 
 <div id="purchases" class="hidden">
 
@@ -188,9 +182,7 @@ Your order history
 
 
 <div class="empty">
-
 No purchases yet
-
 </div>
 
 
@@ -200,9 +192,7 @@ No purchases yet
 
 
 
-
-
-
+<!-- FAVORITES -->
 
 <div id="favorites" class="hidden">
 
@@ -218,9 +208,7 @@ Saved models
 
 
 <div class="empty">
-
 No favorite models
-
 </div>
 
 
@@ -230,9 +218,7 @@ No favorite models
 
 
 
-
-
-
+<!-- SETTINGS -->
 
 <div id="settings" class="hidden">
 
@@ -285,7 +271,6 @@ English
 
 
 
-
 </main>
 
 
@@ -296,14 +281,57 @@ English
 
 
 
-
 <script>
+
+
+// LOAD USER
+
+
+let user = JSON.parse(
+localStorage.getItem("polyvault_user")
+);
+
+
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+
+
+document.getElementById("username").innerText =
+user.username;
+
+
+
+document.getElementById("studioName").innerText =
+user.username + " Studio";
+
+
+
+document.getElementById("email").innerText =
+user.email;
+
+
+
+document.getElementById("avatar").innerText =
+user.username.charAt(0).toUpperCase();
+
+
+
+
+
+// MENU
 
 
 function showPage(page, element){
 
 
-let pages = document.querySelectorAll("main > div");
+let pages =
+document.querySelectorAll("main > div");
+
 
 
 pages.forEach(function(item){
@@ -314,11 +342,15 @@ item.classList.add("hidden");
 
 
 
-document.getElementById(page).classList.remove("hidden");
+document
+.getElementById(page)
+.classList.remove("hidden");
 
 
 
-let menu = document.querySelectorAll(".menu");
+let menu =
+document.querySelectorAll(".menu");
+
 
 
 menu.forEach(function(item){
@@ -336,87 +368,30 @@ element.classList.add("active");
 
 
 
-<script>
 
 
-let user = JSON.parse(
-localStorage.getItem("polyvault_user")
-);
-
-
-if(!user){
-
-window.location.href="login.html";
-
-}
-
-
-document.getElementById("username").innerText =
-user.username;
-
-
-document.getElementById("studioName").innerText =
-user.username + " Studio";
-
-
-document.getElementById("email").innerText =
-user.email;
-
+// LOGOUT
 
 
 function logout(){
+
 
 localStorage.removeItem(
 "polyvault_user"
 );
 
 
+
 window.location.href="login.html";
-
-}
-
-
-
-
-function showPage(page){
-
-
-let pages =
-document.querySelectorAll("main > div");
-
-
-pages.forEach(item=>{
-
-item.classList.add("hidden");
-
-});
-
-
-document
-.getElementById(page)
-.classList.remove("hidden");
-
-
-
-let menu =
-document.querySelectorAll(".menu");
-
-
-menu.forEach(item=>{
-
-item.classList.remove("active");
-
-});
-
-
-event.target.classList.add("active");
 
 
 }
 
 
 </script>
-  
+
+
+
 </body>
 
 </html>

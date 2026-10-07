@@ -19,10 +19,15 @@ header {
     border-bottom: 1px solid #222;
 }
 
+.logo {
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+}
+
 .logo img {
-    width:180px;
+    width:160px;
     height:auto;
-    display:block;
 }
 
 .logo span{

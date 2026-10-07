@@ -97,6 +97,8 @@ button{
 .login{
     position:absolute;
     right:7%;
+    top:50%;
+    transform:translateY(-50%);
     background:#222;
     padding:12px 25px;
     white-space:nowrap;

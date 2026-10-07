@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +24,9 @@
 <img src="assets/logo.png" alt="PolyVault">
 </a>
 
-
 <a class="back" href="index.html">
 Back to Store
 </a>
-
 
 </header>
 
@@ -39,9 +38,7 @@ Back to Store
 <aside>
 
 
-<h2>
-Account
-</h2>
+<h2>Account</h2>
 
 
 <a class="menu active" onclick="showPage('profile',this)">
@@ -66,6 +63,19 @@ Account
 
 <a class="menu" onclick="showPage('settings',this)">
 ⚙ Settings
+</a>
+
+
+<hr>
+
+
+<a class="menu" href="index.html">
+🏪 Back to Store
+</a>
+
+
+<a class="logout" onclick="logout()">
+🚪 Logout
 </a>
 
 
@@ -118,7 +128,7 @@ email@example.com
 
 
 <p>
-Models owned: 0
+Models owned: <span id="models">0</span>
 </p>
 
 
@@ -143,7 +153,6 @@ Logout
 <!-- LIBRARY -->
 
 <div id="library" class="hidden">
-
 
 <h1>
 My Library
@@ -170,7 +179,6 @@ No models yet
 
 <div id="purchases" class="hidden">
 
-
 <h1>
 Purchases
 </h1>
@@ -195,7 +203,6 @@ No purchases yet
 <!-- FAVORITES -->
 
 <div id="favorites" class="hidden">
-
 
 <h1>
 Favorites
@@ -222,7 +229,6 @@ No favorite models
 
 <div id="settings" class="hidden">
 
-
 <h1>
 Settings
 </h1>
@@ -245,8 +251,8 @@ Appearance
 <br>
 
 
-<button>
-🌙 Dark Mode
+<button onclick="toggleTheme()">
+🌙 Toggle Theme
 </button>
 
 
@@ -301,23 +307,33 @@ window.location.href="login.html";
 
 
 
+// USER DATA
+
+
 document.getElementById("username").innerText =
-user.username;
+user.username || "User";
 
 
 
 document.getElementById("studioName").innerText =
-user.username + " Studio";
+user.studio || ((user.username || "User") + " Studio");
 
 
 
 document.getElementById("email").innerText =
-user.email;
+user.email || "No email";
 
 
 
 document.getElementById("avatar").innerText =
-user.username.charAt(0).toUpperCase();
+(user.username || "U")
+.charAt(0)
+.toUpperCase();
+
+
+
+document.getElementById("models").innerText =
+user.models || 0;
 
 
 
@@ -375,11 +391,9 @@ element.classList.add("active");
 
 function logout(){
 
-
 localStorage.removeItem(
 "polyvault_user"
 );
-
 
 
 window.location.href="login.html";
@@ -388,10 +402,43 @@ window.location.href="login.html";
 }
 
 
+
+
+
+// THEME
+
+
+function toggleTheme(){
+
+document.body.classList.toggle("light");
+
+
+localStorage.setItem(
+"polyvault_theme",
+document.body.classList.contains("light")
+);
+
+
+}
+
+
+
+let savedTheme =
+localStorage.getItem("polyvault_theme");
+
+
+if(savedTheme === "true"){
+
+document.body.classList.add("light");
+
+}
+
+
+
 </script>
 
 
 
 </body>
-
 </html>
+```

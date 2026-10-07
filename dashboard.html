@@ -95,39 +95,32 @@ Account
 
 
 <h1>
-Welcome back, Alex
+Welcome back, <span id="username">User</span>
 </h1>
-
 
 <p>
 Your personal PolyVault space
 </p>
 
 
-
 <div class="profile-card">
 
-
-<div class="avatar">
-A
-</div>
-
-
-<div>
-
-<h2>
-Alex Studio
+<h2 id="studioName">
+Studio
 </h2>
 
-
-<p>
-Member since 2026
+<p id="email">
+email@example.com
 </p>
-
 
 <p>
 Models owned: 0
 </p>
+
+
+<button onclick="logout()" class="logout">
+Logout
+</button>
 
 
 </div>
@@ -343,10 +336,87 @@ element.classList.add("active");
 
 
 
+<script>
+
+
+let user = JSON.parse(
+localStorage.getItem("polyvault_user")
+);
+
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+
+document.getElementById("username").innerText =
+user.username;
+
+
+document.getElementById("studioName").innerText =
+user.username + " Studio";
+
+
+document.getElementById("email").innerText =
+user.email;
+
+
+
+function logout(){
+
+localStorage.removeItem(
+"polyvault_user"
+);
+
+
+window.location.href="login.html";
+
+}
+
+
+
+
+function showPage(page){
+
+
+let pages =
+document.querySelectorAll("main > div");
+
+
+pages.forEach(item=>{
+
+item.classList.add("hidden");
+
+});
+
+
+document
+.getElementById(page)
+.classList.remove("hidden");
+
+
+
+let menu =
+document.querySelectorAll(".menu");
+
+
+menu.forEach(item=>{
+
+item.classList.remove("active");
+
+});
+
+
+event.target.classList.add("active");
+
+
+}
+
+
 </script>
-
-
-
+  
 </body>
 
 </html>
